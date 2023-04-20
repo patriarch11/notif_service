@@ -1,0 +1,6 @@
+.gitignore
+.idea/
+.vscode/
+.git/
+/app/README.md
+tests/
