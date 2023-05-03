@@ -44,7 +44,8 @@ class EmailNotificationService(EmailNotificationServiceInterface):
             body = MIMEText(email_notification.body, 'plain')
         message.attach(body)
 
-        with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port) as smtp:
+        with smtplib.SMTP(self.smtp_server, self.smtp_port) as smtp:
+            smtp.starttls()
             smtp.login(self.smtp_username, self.smtp_password)
             smtp.sendmail(email_notification.from_,
                           email_notification.to + email_notification.cc + email_notification.bcc, message.as_string())

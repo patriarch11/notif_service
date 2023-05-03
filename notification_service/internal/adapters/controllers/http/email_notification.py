@@ -16,4 +16,5 @@ async def send_email_notification(notification: EmailNotification,
         email_notif_service.send_email_notification(notification)
         return Response(status_code=200)
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
