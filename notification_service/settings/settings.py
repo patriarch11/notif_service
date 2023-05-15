@@ -1,6 +1,6 @@
 from pydantic import BaseSettings
 
-__all__ = ["Settings", "SMTPSettings"]
+__all__ = ["Settings", "SMTPSettings", "JWTSettings"]
 
 
 class Settings(BaseSettings):
@@ -16,3 +16,13 @@ class SMTPSettings(BaseSettings):
     port: int
     username: str
     password: str
+
+
+class JWTSettings(BaseSettings):
+    class Config:
+        env_prefix = "JWT_"
+
+    client_id: str
+    client_secret: str
+    issuer: str
+    algorithm: str

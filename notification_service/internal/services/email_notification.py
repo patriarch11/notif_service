@@ -2,8 +2,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from notification_service.internal.domain.interfaces.email_notification import EmailNotificationServiceInterface
 from notification_service.internal.domain.models.email_notification import EmailNotification, EmailBodyType
-from notification_service.internal.interfaces.email_notification import EmailNotificationServiceInterface
 from notification_service.settings import __smtp_setting__
 
 
